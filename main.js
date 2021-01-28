@@ -1,1 +1,1 @@
-console.log("hi");
+(()=>{"use strict";!function(){const e=document.getElementById("content"),t=function(){const e=document.createElement("div");e.classList.add("side-bar");const t=document.createElement("a"),n=document.createTextNode("project");return t.appendChild(n),t.title="project",t.href="#",e.appendChild(t),e}();e.appendChild(t)}()})();
