@@ -3,7 +3,7 @@
 }
 
 .side-bar {
-  width: 120px;
+  width: 160px;
   position: fixed;
   z-index: 1;
   top: 1;
@@ -24,4 +24,16 @@
 
 .side-bar a:hover {
   color: black;
+}
+
+.main {
+  margin-left: 160px;
+  padding: 0px 10px;
+  height: 500px;
+  border: solid 1px red;
+}
+
+form {
+  width:40%;
+  border: 1px solid black;
 }
