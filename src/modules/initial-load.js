@@ -32,7 +32,7 @@ function createForm() {
 
     <div class="form-group p-2">
       <label for="date-input">Date:</label>
-      <input id="title" type="date" class="form-control" placeholder="01-01-2020" name="date" value="" required/>
+      <input id="date" type="date" class="form-control" placeholder="01-01-2020" name="date" value="" required/>
     </div>
 
     <div class="form-group p-2">
@@ -52,7 +52,7 @@ function createForm() {
 function createFormButton() {
   const btnDiv = document.createElement('div');
   btnDiv.classList.add('btn-div');
-  btnDiv.innerHTML = `<button class="new-book-btn" onclick="openForm()"><i class="fas fa-plus fa-lg"></i></button>`
+  btnDiv.innerHTML = `<button class="new-task-btn" onclick="openForm()"><i class="fas fa-plus fa-lg"></i></button>`
   return btnDiv;
 }
 
