@@ -20,7 +20,7 @@ function createMain() {
 
 function createForm() {
   const form = document.createElement('div');
-  form.setAttribute("id","form-container")
+  form.setAttribute("id", "form-container")
   form.innerHTML = `
   <form id="form">
   <h1 class='d-flex justify-content-center pt-2'>New TODO</h1>

@@ -8,9 +8,13 @@ function Task(title, date, description) {
 
 function addTask(title, date, description) {
 
-let addNewTask = new Task(title, date, description);
+  let addNewTask = new Task(title, date, description);
   taskList.push(addNewTask);
   console.log(taskList);
 }
 
-export  {addTask, Task, taskList};
+export {
+  addTask,
+  Task,
+  taskList
+};
