@@ -1,3 +1,13 @@
+import {
+  addTask,
+  Task,
+  taskList,
+  renderTaskList
+} from '../modules/todo';
+import loadPage from '../modules/initial-load';
+
+const main = document.getElementById('main');
+
 function formActions() {
   window.openForm = function() {
     document.getElementById("form-container").style.display = "block";
@@ -15,10 +25,12 @@ function formActions() {
       alert('Please fill TODO correctly');
     } else {
       addTask(title, date, description);
+      main.querySelectorAll('.card').forEach(e => e.remove());
+      renderTaskList();
       closeForm();
       form.reset();
     }
   }
 }
 
-export formActions;
+export default formActions();

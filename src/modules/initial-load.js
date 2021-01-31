@@ -1,3 +1,5 @@
+import {addTask, Task, taskList} from '../modules/todo';
+
 function createSidebar() {
   const div = document.createElement('div');
   div.classList.add('side-bar');
@@ -14,6 +16,7 @@ function createSidebar() {
 function createMain() {
   const main = document.createElement('div');
   main.classList.add('main');
+  main.setAttribute("id", "main");
   main.innerHTML = `<h1> test </h1>`;
   return main;
 }
@@ -58,18 +61,19 @@ function createFormButton() {
 
 function loadPage() {
   const content = document.getElementById('content');
-
+  const main = document.getElementById('main');
   const sideBar = createSidebar();
   content.appendChild(sideBar);
-
-  const main = createMain();
-  content.appendChild(main);
 
   const form = createForm();
   content.appendChild(form);
 
   const btn = createFormButton();
   main.appendChild(btn);
+
+if (taskList.length > 0 ) {
+
+}
 
 }
 
