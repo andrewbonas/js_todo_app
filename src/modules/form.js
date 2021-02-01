@@ -12,8 +12,13 @@ function formActions() {
   window.openForm = function() {
     document.getElementById("form-container").style.display = "block";
   }
+  window.openFolderForm = function() {
+    document.getElementById("folder-form-container").style.display = "block";
+  }
   window.closeForm = function() {
     document.getElementById("form-container").style.display = "none";
+    document.getElementById("folder-form-container").style.display = "none";
+
   }
 
   window.submitForm = function() {
@@ -30,6 +35,19 @@ function formActions() {
       closeForm();
       form.reset();
     }
+  }
+  window.newFolder = function() {
+    let name = document.getElementById('new-folder').value;
+    let folderForm = document.getElementById('folder-form');
+
+    if (name == "") {
+      alert('Please add a folder name');
+    } else {
+      console.log("hi");
+      closeForm();
+      folderForm.reset();
+    }
+
   }
 }
 
