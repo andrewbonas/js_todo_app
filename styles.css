@@ -26,10 +26,26 @@
   color: black;
 }
 
+.folder-add {
+  width: 100px;
+  height: 20px;
+  padding-bottom: 25px;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: rgb(151, 151, 157);
+  color: white;
+  border: none;
+}
+.folder-add:hover{
+  height:30px;
+  width: 110px;
+  background-color: rgb(84, 84, 87);
+}
 .main {
   margin-left: 160px;
   padding: 0px 10px 40px;
-  border: solid 1px red;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -48,7 +64,7 @@
   z-index: 99;
 }
 
-#form-container {
+#form-container, #folder-form-container {
 display: none;
 position: fixed;
 top: 50px;
