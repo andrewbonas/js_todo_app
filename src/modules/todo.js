@@ -1,6 +1,11 @@
+import loadPage from '../modules/initial-load';
+
 let projects = [];
 
 let taskList = [];
+
+const sideBar = document.getElementById('side-bar');
+
 
 function Project(name) {
   this.name = name;
@@ -8,24 +13,32 @@ function Project(name) {
   this.Task = function Task(title, date, description) {
     this.Project = project;
   }
+  console.log(Project);
 }
+
 
 function addProject(name) {
+  let newFolder = document.createElement('button');
+  newFolder.innerHTML = `${name}`;
+  newFolder.classList.add("folder");
+  sideBar.prepend(newFolder);
+
   let addNewProject = new Project(name);
-  project.push(addNewProject);
-  console.log(projects);
+  projects.push(addNewProject);
+
 }
 
-
-function Task(title, date, description) {
+function Task(folder, title, date, description) {
+  this.folder = folder;
   this.title = title;
   this.date = date;
   this.description = description;
 }
 
-function addTask(title, date, description) {
-  let addNewTask = new Task(title, date, description);
+function addTask(folder, title, date, description) {
+  let addNewTask = new Task(folder, title, date, description);
   taskList.push(addNewTask);
+  console.log(taskList);
 }
 
 function renderTaskList() {
@@ -59,7 +72,6 @@ export {
   Task,
   taskList,
   renderTaskList,
-
   addProject,
   projects,
   Project,

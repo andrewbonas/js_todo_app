@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box;
 }
+.main {
+  min-height: 700px;
+}
 
 .side-bar {
   width: 160px;
@@ -10,17 +13,23 @@
   left: 0;
   background-color: rgb(196, 199, 201);
   overflow-x: hidden;
-  padding-top: 2px;
-  padding-bottom: 200px;
+  margin-top: -8px;
+  padding-bottom: 30px;
+  min-height: 150px;
+}
+
+a.folder.active  {
+  color: black;
 }
 
 .side-bar a {
-  padding: 10px;
+  padding: 5px 10px 5px 10px;
   text-decoration: none;
   font-size: 25px;
   color: rgb(239, 239, 245);
   display: block;
 }
+
 
 .side-bar a:hover {
   color: black;
@@ -43,6 +52,8 @@
   width: 110px;
   background-color: rgb(84, 84, 87);
 }
+
+
 .main {
   margin-left: 160px;
   padding: 0px 10px 40px;
