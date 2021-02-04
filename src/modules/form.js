@@ -3,12 +3,16 @@ import {
   Task,
   taskList,
   renderTaskList,
-  addProject} from '../modules/todo';
-import {loadPage, folderActivation} from '../modules/initial-load';
+  addProject
+} from '../modules/todo';
+import {
+  loadPage,
+  folderActivation
+} from '../modules/initial-load';
 
 const main = document.getElementById('main');
 
- function formActions() {
+function formActions() {
   window.openForm = function() {
     document.getElementById("form-container").style.display = "block";
   }
@@ -29,7 +33,7 @@ const main = document.getElementById('main');
     if (title == "" || date == "" || description == "") {
       alert('Please fill TODO correctly');
     } else {
-      addTask(folder,title, date, description);
+      addTask(folder, title, date, description);
       main.querySelectorAll('.card').forEach(e => e.remove());
       renderTaskList();
       closeForm();

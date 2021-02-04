@@ -6,10 +6,7 @@ import {  addTask,
   addProject} from './modules/todo';
 import formActions from './modules/form';
 
-
-
 init();
-
 
 function init() {
   loadPage();

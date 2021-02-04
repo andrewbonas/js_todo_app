@@ -1,25 +1,23 @@
 import loadPage from '../modules/initial-load';
 
-
 let taskList = [];
 
 const sideBar = document.getElementById('side-bar');
+const main = document.getElementById('main');
 
 function folderActivation() {
   let folderContainer = document.getElementById("side-bar");
-let folders = folderContainer.getElementsByClassName("folder");
-for (var i = 0; i < folders.length; i++) {
-  folders[i].addEventListener("click", function() {
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
-    main.querySelectorAll('.card').forEach(e => e.remove());
-    renderTaskList();
-  });
+  let folders = folderContainer.getElementsByClassName("folder");
+  for (var i = 0; i < folders.length; i++) {
+    folders[i].addEventListener("click", function() {
+      var current = document.getElementsByClassName("active");
+      current[0].className = current[0].className.replace(" active", "");
+      this.className += " active";
+      main.querySelectorAll('.card').forEach(e => e.remove());
+      renderTaskList();
+    });
+  }
 }
-}
-
-
 
 function addProject(name) {
   let newFolder = document.createElement('a');
@@ -50,9 +48,9 @@ function renderTaskList() {
     taskList.forEach((Task) => {
 
       if (renderfolder === Task[Object.keys(Task)[0]]) {
-      let taskCard = document.createElement('div');
-      taskCard.classList.add('card');
-      taskCard.innerHTML = `
+        let taskCard = document.createElement('div');
+        taskCard.classList.add('card');
+        taskCard.innerHTML = `
       <div class= "card-header">
       <strong>Title:</strong><br>${Task.title}
       </div>
@@ -63,14 +61,27 @@ function renderTaskList() {
     <strong>Date:</strong> ${Task.date}
           </div>
         `
-      main.prepend(taskCard);
-    }
+        let taskDeleteBtn = document.createElement('span');
+        taskDeleteBtn.classList.add('task-del-btn');
+        taskDeleteBtn.textContent = 'x';
+        taskCard.appendChild(taskDeleteBtn);
+        taskDeleteBtn.addEventListener('click', (e) => {
+          taskList.splice(taskList.indexOf(Task), 1);
+          deleteBook(e);
+        });
+        main.prepend(taskCard);
+      }
     });
   } else {
     let taskCard = document.createElement('div');
     taskCard.classList.add('card');
     return taskCard;
   }
+}
+
+function deleteBook(e) {
+  let rmv = e.target.parentElement;
+  main.removeChild(rmv);
 }
 
 export {

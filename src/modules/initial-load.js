@@ -1,5 +1,11 @@
-import {addTask, Task, taskList, renderTaskList,
-  addProject, folderActivation} from '../modules/todo';
+import {
+  addTask,
+  Task,
+  taskList,
+  renderTaskList,
+  addProject,
+  folderActivation
+} from '../modules/todo';
 
 function createSidebar() {
   const div = document.getElementById('side-bar');
@@ -107,11 +113,6 @@ function loadPage() {
   main.appendChild(btn);
 
   folderActivation();
-
-
-if (taskList.length > 0 ) {
-
-}
 
 }
 
