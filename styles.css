@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box;
 }
+.main h4 {
+  width: 80%;
+}
 .main {
   min-height: 700px;
 }
@@ -33,6 +36,8 @@ a.folder.active  {
 
 .side-bar a:hover {
   color: black;
+  cursor:default;
+
 }
 
 .folder-add {
@@ -51,8 +56,9 @@ a.folder.active  {
   height:30px;
   width: 110px;
   background-color: rgb(84, 84, 87);
-}
+  cursor:default;
 
+}
 
 .main {
   margin-left: 160px;
@@ -93,4 +99,16 @@ border-radius: 10px;
 .card {
   width: 300px;
   margin: 30px
+}
+
+.task-del-btn {
+  position: absolute;
+  right: 0;
+  padding-right: 10px;
+  font-weight: bold;
+}
+
+.task-del-btn:hover {
+  font-size: 20px;
+  cursor:crosshair;
 }
