@@ -3,11 +3,8 @@ import {
   Task,
   taskList,
   renderTaskList,
-  addProject,
-  projects,
-  Project
-} from '../modules/todo';
-import loadPage from '../modules/initial-load';
+  addProject} from '../modules/todo';
+import {loadPage, folderActivation} from '../modules/initial-load';
 
 const main = document.getElementById('main');
 
@@ -39,10 +36,10 @@ const main = document.getElementById('main');
       form.reset();
     }
   }
+
   window.newFolder = function() {
     let name = document.getElementById('new-folder').value;
     let folderForm = document.getElementById('folder-form');
-
     if (name == "") {
       alert('Please add a folder name');
     } else {
@@ -50,23 +47,8 @@ const main = document.getElementById('main');
       closeForm();
       folderForm.reset();
     }
-
   }
 }
 
- function folders() {
-  window.folderBtns = function() {
-  let folders = document.getElementByClassName("folder");
-
-  for (let i = 0; i < folders.length; i++) {
-    folders[i].addEventListener("click", function() {
-      let current = document.getElementByClassName("active");
-      current[0].className = current[0].className.replace(" active", "");
-      this.className += " active";
-
-    });
-  }
-}
-}
 
 export default formActions();

@@ -1,31 +1,33 @@
 import loadPage from '../modules/initial-load';
 
-let projects = [];
 
 let taskList = [];
 
 const sideBar = document.getElementById('side-bar');
 
-
-function Project(name) {
-  this.name = name;
-  var project = this;
-  this.Task = function Task(title, date, description) {
-    this.Project = project;
-  }
-  console.log(Project);
+function folderActivation() {
+  let folderContainer = document.getElementById("side-bar");
+let folders = folderContainer.getElementsByClassName("folder");
+for (var i = 0; i < folders.length; i++) {
+  folders[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+    main.querySelectorAll('.card').forEach(e => e.remove());
+    renderTaskList();
+  });
+}
 }
 
 
+
 function addProject(name) {
-  let newFolder = document.createElement('button');
+  let newFolder = document.createElement('a');
   newFolder.innerHTML = `${name}`;
   newFolder.classList.add("folder");
+  newFolder.dataset.title = name;
   sideBar.prepend(newFolder);
-
-  let addNewProject = new Project(name);
-  projects.push(addNewProject);
-
+  folderActivation();
 }
 
 function Task(folder, title, date, description) {
@@ -42,9 +44,12 @@ function addTask(folder, title, date, description) {
 }
 
 function renderTaskList() {
+  let renderfolder = document.querySelector(".active").dataset.title;
 
   if (taskList.length > 0) {
     taskList.forEach((Task) => {
+
+      if (renderfolder === Task[Object.keys(Task)[0]]) {
       let taskCard = document.createElement('div');
       taskCard.classList.add('card');
       taskCard.innerHTML = `
@@ -59,6 +64,7 @@ function renderTaskList() {
           </div>
         `
       main.prepend(taskCard);
+    }
     });
   } else {
     let taskCard = document.createElement('div');
@@ -73,6 +79,5 @@ export {
   taskList,
   renderTaskList,
   addProject,
-  projects,
-  Project,
+  folderActivation
 };

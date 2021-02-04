@@ -1,29 +1,28 @@
-import {addTask, Task, taskList,
-  addProject,
-  projects,
-  Project} from '../modules/todo';
+import {addTask, Task, taskList, renderTaskList,
+  addProject, folderActivation} from '../modules/todo';
 
 function createSidebar() {
   const div = document.getElementById('side-bar');
   const folder = document.createElement('a');
   const folder1 = document.createElement('a');
+  let a = "project";
+  let b = "project1";
+
 
   const linkText = document.createTextNode('project');
   folder.appendChild(linkText);
-  folder.setAttribute('data-title' , 'project');
+  folder.setAttribute("data-title", "project1");
   folder.classList.add("folder");
   div.appendChild(folder);
 
 
   const linkText1 = document.createTextNode('project2');
   folder1.appendChild(linkText1);
-  folder1.setAttribute('data-title' , 'project1');
+  folder1.dataset.title = a;
   folder1.classList.add("folder");
   folder1.classList.add("active");
 
   div.appendChild(folder1);
-
-
 
   const btn = document.createElement('button');
   btn.classList.add('folder-add');
@@ -106,6 +105,9 @@ function loadPage() {
 
   const btn = createFormButton();
   main.appendChild(btn);
+
+  folderActivation();
+
 
 if (taskList.length > 0 ) {
 
