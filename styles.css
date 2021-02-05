@@ -22,21 +22,33 @@
 }
 
 a.folder.active  {
-  color: black;
+color:  rgb(125, 127, 129);
 }
 
 .side-bar a {
-  padding: 5px 10px 5px 10px;
+  padding: 0px 10px 0px 10px;
   text-decoration: none;
   font-size: 25px;
   color: rgb(239, 239, 245);
   display: block;
+  height: 45px;
 }
 
-
-.side-bar a:hover {
-  color: black;
+.folder:hover {
+  color: rgb(125, 127, 129);
   cursor:default;
+}
+.side-bar .project-del-btn:hover {
+  color: black;
+  font-size: 28px;
+}
+
+.project-del-btn {
+  position: absolute;
+  right: 0;
+  font-size: 25px;
+  height: inherit;
+  padding: 0px 10px 0px 10px;
 
 }
 
