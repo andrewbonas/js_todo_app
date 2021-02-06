@@ -32,7 +32,7 @@ function formActions() {
     let folder = folderBtn.dataset.title;
     let complete = false;
     if (title == "" || date == "" || description == "") {
-      alert('Please fill TODO correctly');
+      alert('Please fill TODO correctly.');
     } else {
       addTask(folder, title, date, description, complete);
       main.querySelectorAll('.card').forEach(e => e.remove());
@@ -46,11 +46,27 @@ function formActions() {
     let name = document.getElementById('new-folder').value;
     let folderForm = document.getElementById('folder-form');
     if (name == "") {
-      alert('Please add a folder name');
+      alert('Please add a folder name.');
+    } else if (matchingFolderNames(name) == true) {
+      console.log('hioh');
+      alert('Folder names must be unique.');
+
     } else {
       addProject(name);
       closeForm();
       folderForm.reset();
+    }
+  }
+}
+
+function matchingFolderNames(name) {
+  const sideBar = document.getElementById('side-bar');
+  let folders = sideBar.querySelectorAll('.folder');
+  let i;
+  for (i = 0; i < folders.length; i++) {
+    let currentCard = folders[i];
+    if (currentCard.dataset.title === name) {
+      return true;
     }
   }
 }

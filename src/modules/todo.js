@@ -29,6 +29,12 @@ function addProject(name) {
   deleteProjectBtn(name, newFolder);
   sideBar.prepend(newFolder);
   folderActivation();
+  setData();
+}
+
+function renderSidebar() {
+
+
 }
 
 function deleteProjectBtn(name, newFolder) {

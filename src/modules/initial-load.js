@@ -11,31 +11,38 @@ function createSidebar() {
   const div = document.getElementById('side-bar');
   const folder = document.createElement('a');
   const folder1 = document.createElement('a');
-  let a = "project";
-  let b = "project1";
 
-
-  const linkText = document.createTextNode('project');
+  const linkText = document.createTextNode('example');
   folder.appendChild(linkText);
-  folder.setAttribute("data-title", "project1");
+  folder.setAttribute("data-title", "example");
   folder.classList.add("folder");
+  folder.classList.add("active");
   div.appendChild(folder);
+newFolderBtn(div);
 
+  renderFolders();
 
-  const linkText1 = document.createTextNode('project2');
-  folder1.appendChild(linkText1);
-  folder1.dataset.title = a;
-  folder1.classList.add("folder");
-  folder1.classList.add("active");
+  return div;
+}
 
-  div.appendChild(folder1);
-
+function newFolderBtn(div) {
   const btn = document.createElement('button');
   btn.classList.add('folder-add');
   btn.innerHTML = `<span>New Folder</span>`;
   btn.addEventListener('click', openFolderForm);
   div.appendChild(btn);
-  return div;
+
+}
+
+function renderFolders() {
+  console.log(taskList);
+  taskList.forEach(function(Task) {
+    console.log(Task);
+let folder =  Task[Object.keys(Task)[0]];
+if( folder != "example") {
+addProject(folder);
+}
+});
 }
 
 function createForm() {
