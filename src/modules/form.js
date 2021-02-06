@@ -30,10 +30,11 @@ function formActions() {
     let description = document.getElementById('description').value;
     let folderBtn = document.querySelector('.active');
     let folder = folderBtn.dataset.title;
+    let complete = false;
     if (title == "" || date == "" || description == "") {
       alert('Please fill TODO correctly');
     } else {
-      addTask(folder, title, date, description);
+      addTask(folder, title, date, description, complete);
       main.querySelectorAll('.card').forEach(e => e.remove());
       renderTaskList();
       closeForm();

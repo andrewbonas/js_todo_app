@@ -43,7 +43,7 @@ function createForm() {
   form.setAttribute("id", "form-container")
   form.innerHTML = `
   <form id="form">
-  <h1 class='d-flex justify-content-center pt-2'>New TODO</h1>
+  <h1 class='d-flex justify-content-center pt-2'>TODO</h1>
 
     <div class="form-group p-2">
       <label for="title">Title:</label>
