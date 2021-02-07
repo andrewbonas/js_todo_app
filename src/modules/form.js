@@ -16,7 +16,7 @@ function formActions() {
   window.openForm = function() {
     document.getElementById("form-container").style.display = "block";
   }
-  
+
   window.openFolderForm = function() {
     document.getElementById("folder-form-container").style.display = "block";
   }
@@ -31,20 +31,24 @@ function formActions() {
   }
 
   function clickedSubmitForm() {
-    let title = document.getElementById('title').value;
-    let date = document.getElementById('date').value;
-    let description = document.getElementById('description').value;
     let folderBtn = document.querySelector('.active');
-    let folder = folderBtn.dataset.title;
-    let complete = false;
-    if (title == "" || date == "" || description == "") {
-      alert('Please fill TODO correctly.');
+    if (folderBtn == null) {
+      alert('Please choose a folder to submit TODO');
     } else {
-      addTask(folder, title, date, description, complete);
-      main.querySelectorAll('.card').forEach(e => e.remove());
-      renderTaskList();
-      closeForm();
-      form.reset();
+      let title = document.getElementById('title').value;
+      let date = document.getElementById('date').value;
+      let description = document.getElementById('description').value;
+      let folder = folderBtn.dataset.title;
+      let complete = false;
+      if (title == "" || date == "" || description == "") {
+        alert('Please fill TODO correctly.');
+      } else {
+        addTask(folder, title, date, description, complete);
+        main.querySelectorAll('.card').forEach(e => e.remove());
+        renderTaskList();
+        closeForm();
+        form.reset();
+      }
     }
   }
 
