@@ -32,11 +32,6 @@ function addProject(name) {
   setData();
 }
 
-function renderSidebar() {
-
-
-}
-
 function deleteProjectBtn(name, newFolder) {
   let projectDeleteBtn = document.createElement('span');
   projectDeleteBtn.classList.add('project-del-btn');
@@ -106,7 +101,7 @@ function renderTaskList() {
 function taskComplete(taskCard, Task) {
   let taskDeleteBtn = document.createElement('span');
   taskDeleteBtn.classList.add('task-complete-btn');
-  taskDeleteBtn.textContent = 'e';
+  taskDeleteBtn.innerHTML = `<i class="fas fa-check"></i>`;
   taskCard.appendChild(taskDeleteBtn);
   taskDeleteBtn.addEventListener('click', (e) => {
     if (Task.complete === false) {
@@ -148,5 +143,6 @@ export {
   taskList,
   renderTaskList,
   addProject,
-  folderActivation
+  folderActivation,
+  deleteProjectBtn
 };

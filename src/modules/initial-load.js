@@ -4,45 +4,49 @@ import {
   taskList,
   renderTaskList,
   addProject,
-  folderActivation
+  folderActivation,
+  deleteProjectBtn
 } from '../modules/todo';
 
 function createSidebar() {
   const div = document.getElementById('side-bar');
   const folder = document.createElement('a');
   const folder1 = document.createElement('a');
+  exampleFolder(div, folder);
+  newFolderBtn(div);
+  renderFolders();
+  return div;
+}
 
+function exampleFolder(div, folder) {
   const linkText = document.createTextNode('example');
   folder.appendChild(linkText);
   folder.setAttribute("data-title", "example");
   folder.classList.add("folder");
   folder.classList.add("active");
+  deleteProjectBtn(linkText, folder)
   div.appendChild(folder);
-newFolderBtn(div);
-
-  renderFolders();
-
-  return div;
 }
 
 function newFolderBtn(div) {
+  const btnCtn = document.createElement('div');
   const btn = document.createElement('button');
+  btnCtn.classList.add('button-container');
   btn.classList.add('folder-add');
   btn.innerHTML = `<span>New Folder</span>`;
   btn.addEventListener('click', openFolderForm);
-  div.appendChild(btn);
+  btnCtn.appendChild(btn);
+  div.appendChild(btnCtn);
 
 }
 
 function renderFolders() {
-  console.log(taskList);
   taskList.forEach(function(Task) {
-    console.log(Task);
-let folder =  Task[Object.keys(Task)[0]];
-if( folder != "example") {
-addProject(folder);
-}
-});
+    let folder = Task[Object.keys(Task)[0]];
+    if (folder != "example") {
+      addProject(folder);
+    }
+  });
 }
 
 function createForm() {
@@ -59,7 +63,7 @@ function createForm() {
 
     <div class="form-group p-2">
       <label for="date-input">Date:</label>
-      <input id="date" type="date" class="form-control" placeholder="01-01-2020" name="date" value="" required/>
+      <input id="date" type="date" class="form-control" placeholder="01-01-2020" name="date" value="2021-01-01" required/>
     </div>
 
     <div class="form-group p-2">
@@ -82,7 +86,6 @@ function createFolderForm() {
   form.innerHTML = `
   <form id="folder-form">
   <h1 class='d-flex justify-content-center pt-2'>New Folder</h1>
-
     <div class="form-group p-2">
       <label for="new-folder">Name:</label>
       <input id="new-folder" type="text" class="form-control" placeholder="name" name="new-folder" value="" required/>

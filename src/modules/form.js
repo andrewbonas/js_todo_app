@@ -16,15 +16,21 @@ function formActions() {
   window.openForm = function() {
     document.getElementById("form-container").style.display = "block";
   }
+  
   window.openFolderForm = function() {
     document.getElementById("folder-form-container").style.display = "block";
   }
+
   window.closeForm = function() {
     document.getElementById("form-container").style.display = "none";
     document.getElementById("folder-form-container").style.display = "none";
   }
 
   window.submitForm = function() {
+    clickedSubmitForm();
+  }
+
+  function clickedSubmitForm() {
     let title = document.getElementById('title').value;
     let date = document.getElementById('date').value;
     let description = document.getElementById('description').value;
@@ -48,9 +54,7 @@ function formActions() {
     if (name == "") {
       alert('Please add a folder name.');
     } else if (matchingFolderNames(name) == true) {
-      console.log('hioh');
       alert('Folder names must be unique.');
-
     } else {
       addProject(name);
       closeForm();
